@@ -1,8 +1,8 @@
-let number = Math.floor(Math.random() * 11);
+let number = Math.floor(Math.random() * 11); // Моделирование интервала ввода чисел
 let guessCount = 1;
 let resetButton;
 
-const attempts = document.getElementById('attempts');
+const attempts = document.getElementById('attempts'); // Попытки
 const allertMessage = document.getElementById('allertMessage');
 const value = document.getElementById('value');
 const guessSubmit = document.getElementById('submit');
@@ -17,33 +17,30 @@ function checkGuess() {
   attempts.textContent += guess + ' ';
 
   if (guess === number) {
-    allertMessage.textContent = 'Вы угадали!';
+    allertMessage.textContent = 'Вы угадали!'; // Моделирование сообщения о правильно угаданном числе
     allertMessage.style.color = 'green';
     value.textContent = '';
     setGameOver();
   } else if (guessCount === 10) {
-    allertMessage.textContent = 'Игра закончена';
+    allertMessage.textContent = 'Игра закончена'; // Моделирование сообщения об окончании игры
     value.textContent = '';
     setGameOver();
   } else {
-    allertMessage.textContent = 'Ошибка!';
+    allertMessage.textContent = 'Ошибка!'; // Моделирование сообщения о неверной попытке ввода не числа
     allertMessage.style.color = 'red';
 
     if(guess < number) {
-      value.textContent = 'Введите число больше' ;
+      value.textContent = 'Введите число больше'; // Моделирование сообщения о вводе большего числа
     } else if(guess > number) {
-      value.textContent = 'Введите число меньше';
+      value.textContent = 'Введите число меньше'; // Моделирование сообщения о вводе меньшего числа
     }
   }
 
   guessCount++;
   guessField.value = '';
-  guessField.focus();
 }
 
-guessSubmit.addEventListener('click', checkGuess);
-
-function setGameOver() {
+function setGameOver() { // Начать новую игру
   guessField.disabled = true;
   guessSubmit.disabled = true;
   resetButton = document.createElement('button');
@@ -52,11 +49,11 @@ function setGameOver() {
   resetButton.addEventListener('click', resetGame);
 }
 
-function resetGame() {
+function resetGame() { 
   guessCount = 1;
-  const resetParas = document.querySelectorAll('result p');
-  for(let i = 0 ; i < resetParas.length ; i++) {
-    resetParas[i].textContent = '';
+  const resetResult = document.querySelectorAll('.result p');
+  for(let i = 0 ; i < resetResult.length ; i++) {
+    resetResult[i].textContent = '';
   }
 
   resetButton.parentNode.removeChild(resetButton);
