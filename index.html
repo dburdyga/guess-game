@@ -3,24 +3,23 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css">
-  <title>Number guessing game</title>
+  <title>Number Guessing Game</title>
   <script src="index.js" defer></script>
 </head>
 
 <body>
-<h1>Игра Угадай число</h1>
+  <h3>Игра Угадай число</h3>
 
-<div class="form">
-  <label for="guessField">Введите число от 0 до 10: </label><input type="text" id="guessField" class="guessField">
-  <input type="submit" value="Проверить" class="guessSubmit">
-</div>
+  <div class="form">
+    <label for="field">Введите число от 0 до 10:</label>
+    <input type="text" id="field">
+    <button type="submit" id="submit">Проверить</button>
+  </div>
 
-<div class="resultParas">
-  <p class="guesses"></p>
-  <p class="lastResult"></p>
-  <p class="lowOrHi"></p>
-</div>
-
-
+  <div id="resultParas">
+    <p id="attempts"></p>
+    <p id="lastResult"></p>
+    <p id="lowOrHighValue"></p>
+  </div>
 </body>
 </html>

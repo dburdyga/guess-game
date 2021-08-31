@@ -1,36 +1,38 @@
 let number = Math.floor(Math.random() * 11);
-const guesses = document.querySelector('.guesses');
-const lastResult = document.querySelector('.lastResult');
-const lowOrHi = document.querySelector('.lowOrHi');
-const guessSubmit = document.querySelector('.guessSubmit');
-const guessField = document.querySelector('.guessField');
 let guessCount = 1;
 let resetButton;
 
+const attempts = document.getElementById('attempts');
+const lastResult = document.getElementById('lastResult');
+const lowOrHighValue = document.getElementById('lowOrHighValue');
+const guessSubmit = document.getElementById('submit');
+const guessField = document.getElementById('field');
+
 function checkGuess() {
-  let userGuess = Number(guessField.value);
+  let guess = Number(guessField.value);
   if (guessCount === 1) {
-    guesses.textContent = 'Предыдущие попытки: ';
+    attempts.textContent = 'Предыдущие попытки: ';
   }
 
-  guesses.textContent += userGuess + ' ';
+  attempts.textContent += guess + ' ';
 
-  if (userGuess === number) {
+  if (guess === number) {
     lastResult.textContent = 'Вы угадали!';
-    lastResult.style.backgroundColor = 'green';
-    lowOrHi.textContent = '';
+    lastResult.style.color = 'green';
+    lowOrHighValue.textContent = '';
     setGameOver();
   } else if (guessCount === 10) {
     lastResult.textContent = 'Игра закончена';
-    lowOrHi.textContent = '';
+    lowOrHighValue.textContent = '';
     setGameOver();
   } else {
     lastResult.textContent = 'Ошибка!';
-    lastResult.style.backgroundColor = 'red';
-    if(userGuess < number) {
-      lowOrHi.textContent = 'Введите число больше' ;
-    } else if(userGuess > number) {
-      lowOrHi.textContent = 'Введите число меньше';
+    lastResult.style.color = 'red';
+
+    if(guess < number) {
+      lowOrHighValue.textContent = 'Введите число больше' ;
+    } else if(guess > number) {
+      lowOrHighValue.textContent = 'Введите число меньше';
     }
   }
 
@@ -62,6 +64,5 @@ function resetGame() {
   guessSubmit.disabled = false;
   guessField.value = '';
   guessField.focus();
-  lastResult.style.backgroundColor = 'white';
   randomNumber = Math.floor(Math.random() * 11);
 }
