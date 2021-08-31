@@ -49,7 +49,7 @@ function setGameOver() { // Начать новую игру
   resetButton.addEventListener('click', resetGame);
 }
 
-function resetGame() { 
+function resetGame() {
   guessCount = 1;
   const resetResult = document.querySelectorAll('.result p');
   for(let i = 0 ; i < resetResult.length ; i++) {
