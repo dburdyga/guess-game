@@ -3,8 +3,8 @@ let guessCount = 1;
 let resetButton;
 
 const attempts = document.getElementById('attempts');
-const lastResult = document.getElementById('lastResult');
-const lowOrHighValue = document.getElementById('lowOrHighValue');
+const allertMessage = document.getElementById('allertMessage');
+const value = document.getElementById('value');
 const guessSubmit = document.getElementById('submit');
 const guessField = document.getElementById('field');
 
@@ -17,22 +17,22 @@ function checkGuess() {
   attempts.textContent += guess + ' ';
 
   if (guess === number) {
-    lastResult.textContent = 'Вы угадали!';
-    lastResult.style.color = 'green';
-    lowOrHighValue.textContent = '';
+    allertMessage.textContent = 'Вы угадали!';
+    allertMessage.style.color = 'green';
+    value.textContent = '';
     setGameOver();
   } else if (guessCount === 10) {
-    lastResult.textContent = 'Игра закончена';
-    lowOrHighValue.textContent = '';
+    allertMessage.textContent = 'Игра закончена';
+    value.textContent = '';
     setGameOver();
   } else {
-    lastResult.textContent = 'Ошибка!';
-    lastResult.style.color = 'red';
+    allertMessage.textContent = 'Ошибка!';
+    allertMessage.style.color = 'red';
 
     if(guess < number) {
-      lowOrHighValue.textContent = 'Введите число больше' ;
+      value.textContent = 'Введите число больше' ;
     } else if(guess > number) {
-      lowOrHighValue.textContent = 'Введите число меньше';
+      value.textContent = 'Введите число меньше';
     }
   }
 
@@ -54,7 +54,7 @@ function setGameOver() {
 
 function resetGame() {
   guessCount = 1;
-  const resetParas = document.querySelectorAll('.resultParas p');
+  const resetParas = document.querySelectorAll('result p');
   for(let i = 0 ; i < resetParas.length ; i++) {
     resetParas[i].textContent = '';
   }
