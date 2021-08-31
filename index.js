@@ -1,5 +1,5 @@
 let number = Math.floor(Math.random() * 11); // Моделирование интервала ввода чисел
-let guessCount = 1;
+let attemptsCount = 1;
 let resetButton;
 
 const attempts = document.getElementById('attempts'); // Попытки
@@ -8,9 +8,9 @@ const value = document.getElementById('value');
 const guessSubmit = document.getElementById('submit');
 const guessField = document.getElementById('field');
 
-function checkGuess() {
+function checkGuess() { // Проверить значение
   let guess = Number(guessField.value);
-  if (guessCount === 1) {
+  if (attemptsCount === 1) {
     attempts.textContent = 'Предыдущие попытки: ';
   }
 
@@ -21,7 +21,7 @@ function checkGuess() {
     allertMessage.style.color = 'green';
     value.textContent = '';
     setGameOver();
-  } else if (guessCount === 10) {
+  } else if (attemptsCount === 10) {
     allertMessage.textContent = 'Игра закончена'; // Моделирование сообщения об окончании игры
     value.textContent = '';
     setGameOver();
@@ -36,7 +36,7 @@ function checkGuess() {
     }
   }
 
-  guessCount++;
+  attemptsCount++;
   guessField.value = '';
 }
 
@@ -49,8 +49,8 @@ function setGameOver() { // Начать новую игру
   resetButton.addEventListener('click', resetGame);
 }
 
-function resetGame() {
-  guessCount = 1;
+function resetGame() { // Сбросить игру
+  attemptsCount = 1;
   const resetResult = document.querySelectorAll('.result p');
   for(let i = 0 ; i < resetResult.length ; i++) {
     resetResult[i].textContent = '';
