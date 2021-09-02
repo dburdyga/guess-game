@@ -41,16 +41,15 @@ function checkGuess() { // Проверить значение
 }
 
 function playerLevel() { // Уровень игрока
-  let guess = Number(guessField.value);
-  if( guess === number && attemptsCount < 1 )  {
+  if( attemptsCount < 1 )  {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Чемпион';
-  } else if ( guess === number && attemptsCount < 3 ) {
+  } else if ( attemptsCount < 3 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Эксперт';
-  } else if ( guess === number && attemptsCount < 5 ) {
+  } else if ( attemptsCount < 5 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Профи';
-  } else if ( guess === number && attemptsCount < 7 ) {
+  } else if ( attemptsCount < 7 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Любитель';
-  } else if ( guess === number && attemptsCount > 9 ) {
+  } else if ( attemptsCount > 9 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Новичок';
   }
 }
