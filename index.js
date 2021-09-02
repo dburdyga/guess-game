@@ -17,9 +17,9 @@ function checkGuess() { // Проверить значение
   attempts.textContent += guess + ' ';
 
   if (guess === number) {
-    playerLevel(); // Моделирование сообщения о правильно угаданном числе
     allertMessage.style.color = 'green';
     value.textContent = '';
+    playerLevel(); // Моделирование сообщения о правильно угаданном числе и уровне игрока
     setGameOver();
   } else if (attemptsCount === 10) {
     allertMessage.textContent = 'Игра закончена'; // Моделирование сообщения об окончании игры
@@ -40,7 +40,7 @@ function checkGuess() { // Проверить значение
   guessField.value = '';
 }
 
-function playerLevel() {
+function playerLevel() { // Уровень игрока
   let guess = Number(guessField.value);
   if( guess === number && attemptsCount < 1 )  {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Чемпион';
@@ -76,5 +76,5 @@ function resetGame() { // Сбросить игру
   guessSubmit.disabled = false;
   guessField.value = '';
   guessField.focus(); // для автоматического размещения текстового курсора в поле
-  randomNumber = Math.floor(Math.random() * 11); // создание нового рандомного числа
+  number = Math.floor(Math.random() * 11); // создание нового рандомного числа
 }
