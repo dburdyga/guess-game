@@ -60,6 +60,6 @@ function resetGame() { // Сбросить игру
   guessField.disabled = false;
   guessSubmit.disabled = false;
   guessField.value = '';
-  guessField.focus();
-  randomNumber = Math.floor(Math.random() * 11);
+  guessField.focus(); // для автоматического размещения текстового курсора в поле
+  randomNumber = Math.floor(Math.random() * 11); // создание нового рандомного числа
 }
