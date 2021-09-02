@@ -17,8 +17,7 @@ function checkGuess() { // Проверить значение
   attempts.textContent += guess + ' ';
 
   if (guess === number) {
-    playerLevel();
-    allertMessage.textContent = 'Вы угадали!'; // Моделирование сообщения о правильно угаданном числе
+    playerLevel(); // Моделирование сообщения о правильно угаданном числе
     allertMessage.style.color = 'green';
     value.textContent = '';
     setGameOver();
@@ -42,15 +41,16 @@ function checkGuess() { // Проверить значение
 }
 
 function playerLevel() {
-  if(attemptsCount < 1) {
+  let guess = Number(guessField.value);
+  if( guess === number && attemptsCount < 1 )  {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Чемпион';
-  } else if(attemptsCount < 2) {
+  } else if ( guess === number && attemptsCount < 3 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Эксперт';
-  } else if(attemptsCount < 3) {
+  } else if ( guess === number && attemptsCount < 5 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Профи';
-  } else if(attemptsCount < 4) {
+  } else if ( guess === number && attemptsCount < 7 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Любитель';
-  } else if(attemptsCount > 8) {
+  } else if ( guess === number && attemptsCount > 9 ) {
     allertMessage.textContent = 'Вы угадали! Ваш уровень: Новичок';
   }
 }
